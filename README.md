@@ -1,2 +1,3 @@
-# EE599-Project-Python-
-Pokemon recognition Python part
+# EE599-Project: Pokemon Recognition (Python Part)
+Jiayue Yu & Tianjiao Feng & Xin Huang  
+---  
