@@ -2,6 +2,10 @@
 Jiayue Yu & Tianjiao Feng & Xin Huang  
 ---  
 
-### Update Feb.16 1 p.m
+### Update Feb.16 1 p.m.
 Jiayue  
-Update Image_check.py
+Create Image_check.py
+
+### Update Feb.16 7 p.m.
+Jiayue  
+Create Pokemon.py
