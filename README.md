@@ -2,7 +2,12 @@
 Jiayue Yu & Tianjiao Feng & Xin Huang  
 ---  
 ### Updates
-#### Update Feb.23 15 p.m.
+
+#### Update Feb.23 4 p.m.
+Jiayue  
+Create LeNet5_v2.py and please ignore LeNet5_v1.py
+
+#### Update Feb.23 3 p.m.
 Xin  
 Update datasetMaker.ipynb, which convert the images to .ftrecords format  
 
