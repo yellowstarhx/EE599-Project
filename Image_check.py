@@ -11,7 +11,7 @@ for i in range (39,41):
         # Read image
         path='/Users/yueyue/Desktop/usc/M2S2/EE599/project/new_train/'+str('{:03}'.format(i))+'/'+str(j)+'.png'
         if(os.path.isfile(path)==0):
-            path='/Users/yueyue/Desktop/usc/M2S2/EE599/project/train/'+str('{:03}'.format(i))+'/'+str(j)+'.jpg'
+            path='/Users/yueyue/Desktop/usc/M2S2/EE599/project/new_train/'+str('{:03}'.format(i))+'/'+str(j)+'.jpg'
         img = mpimg.imread(path)
         img = color.rgb2gray(transform.resize(img, (28, 28))) #resize
         # Output Images (uncomment below two lines to check if image can be printed sucessfully)
