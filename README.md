@@ -3,6 +3,10 @@ Jiayue Yu & Tianjiao Feng & Xin Huang
 ---  
 ### Updates
 
+#### Update Mar.16 12 p.m.
+Xin  
+Create EnhanceDataSet.ipynb, expand images in each class to 30 by ratating & transposing
+
 #### Update Feb.23 4 p.m.
 Jiayue  
 Create LeNet5_v2.py and please ignore LeNet5_v1.py
