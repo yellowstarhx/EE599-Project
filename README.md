@@ -3,6 +3,10 @@ Jiayue Yu & Tianjiao Feng & Xin Huang
 ---  
 ### Updates
 
+#### Update Apr.1 20 p.m.
+Xin  
+Upload data.cpp, data.h, datatest.cpp, which serve as C++ data structure in KNN OOP implementation.  
+
 #### Update Mar.16 12 p.m.
 Xin  
 Create EnhanceDataSet.ipynb, expand images in each class to 30 by ratating & transposing
