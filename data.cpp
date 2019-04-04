@@ -1,10 +1,4 @@
 #include "data.h"
-#include <vector>
-#include <string>
-#include <sstream>
-#include <iostream>
-#include <fstream>
-#include <cassert>
 
 Image::Image() {
 	label = 0;
@@ -34,8 +28,25 @@ void Image::printImage() {
 	// }
 }
 
+int Image::get_size() {
+	return size;
+}
+
+double* Image::get_content() {
+	return content;
+}
+
+int Image::get_label() {
+	return label;
+}
+
 Image::~Image() {
 	delete content;
+}
+
+Dataset::Dataset() {
+	size = 0;
+	dataset = NULL;
 }
 
 Dataset::Dataset(string filename, string dataset_type) {
@@ -92,4 +103,12 @@ void Dataset::show1Image(int i) {
 	if (i < size)
 		cout << i << "-th ";
 		dataset[i].printImage();
+}
+
+int Dataset::get_size() {
+	return size;
+}
+
+Image* Dataset::get_dataset() {
+	return dataset;
 }
