@@ -10,10 +10,10 @@ Upload KNN.cpp, KNN.h, KNNtest.cpp, KNN OOP implementation complished.
 ***Run***:     `./model k train.csv test.csv`  
 (By default, **k = 5**, train.csv = LeNet5_train.csv, test.csv = LeNet5_test.csv)  
 ***Result***:  
-  **LeNet5_train.csv** and **LeNet5_test.csv** contain *320* and *80* images respectively. Each image is a gray-scale image consisted of 28*28 pixels and each pixel is converted to 0-1.  
+  **LeNet5_train.csv** and **LeNet5_test.csv** contain *320* and *80* images respectively. Each image is a gray-scale image consisted of 28&times;28 pixels and each pixel is converted to 0-1.  
   `./model 1` ----> accuracy = 17.5%  
   `./model`   ----> accuracy = 15%  
-  **28RGB_train.csv** and **28RGB_test.csv** contain *160* and *40* images respectively. Each image is a RGB image consisted of 28*28*3 pixels and each pixel is converted to 0-1.  
+  **28RGB_train.csv** and **28RGB_test.csv** contain *160* and *40* images respectively. Each image is a RGB image consisted of 28&times;28&times;3 pixels and each pixel is converted to 0-1.  
   `./model 1 28RGB_train.csv 28RGB_test.csv`  ----> accuracy = 20%  
   `./model 5 28RGB_train.csv 28RGB_test.csv`  ----> accuracy = 7.5%  
 
