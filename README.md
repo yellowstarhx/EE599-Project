@@ -3,6 +3,11 @@ Jiayue Yu & Tianjiao Feng & Xin Huang
 ---  
 ### Updates
 
+
+#### Update May.2 11 a.m.
+Xin  
+Modify C++ code to meet the requirements.    
+  
 #### Update Apr.3 20 p.m.
 Xin  
 Upload KNN.cpp, KNN.h, KNNtest.cpp, KNN OOP implementation complished.  
