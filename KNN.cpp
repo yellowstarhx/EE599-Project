@@ -10,19 +10,19 @@ KNN::~KNN() {
 	delete train_data, test_data;
 }
 
-void KNN::set_k(int n){
+inline void KNN::set_k(int n){
 	k = n;
 }
 
-void KNN::set_train_data(string filename) {
+inline void KNN::set_train_data(string filename) {
 	train_data = new Dataset(filename, "train");
 }
 
-void KNN::set_test_data(string filename) {
+inline void KNN::set_test_data(string filename) {
 	test_data = new Dataset(filename, "test");
 }
 
-int KNN::predict(Image img) {
+int KNN::predict(Image& img) {
 	Image* train_imgs = train_data -> get_dataset();
 	int dataset_size = train_data -> get_size();
 	// k
@@ -31,10 +31,10 @@ int KNN::predict(Image img) {
 	vector<pair<int, double>> candicates;
 	candicates.clear();
 	for (int i = 0; i < dataset_size; ++i) {
-		cout << endl << i << " -th image in train set(label: " << train_imgs[i].get_label() << ")" << endl;
+		// cout << endl << i << "-th image in train set(label: " << train_imgs[i].get_label() << ")" << endl;
 		// double cur_distance = compute_distence(img, train_imgs[i]);	// Error
 		double cur_distance = compute_distence(img.get_content(), train_imgs[i].get_content(), img.get_size());
-		cout << "*******distance: " << cur_distance << endl;
+		// cout << "*******distance: " << cur_distance << endl;
 		// *if the distance has been already greater than cur_max, we don't need to preceed
 		if (candicates.size() < k) {
 			candicates.push_back(make_pair(train_imgs[i].get_label(), cur_distance));
@@ -49,16 +49,16 @@ int KNN::predict(Image img) {
 				cur_max = candicates[j].second;
 				where_max = j;
 			}
-			cout << candicates[j].first << "," << candicates[j].second << " ";
+			// cout << candicates[j].first << "," << candicates[j].second << " ";
 		}
-		cout << endl;
+		// cout << endl;
 		assert(candicates.size() <= k);
 	}
 	// vote
 	map<int, int> vote;
-	cout << "Counting votes:";
+	// cout << "Counting votes:";
 	for (int i = 0; i < k; ++i) {
-		cout << candicates[i].first << "," << candicates[i].second << " ";
+		// cout << candicates[i].first << "," << candicates[i].second << " ";
 		if (vote.find(candicates[i].first) != vote.end()) {
 			vote[candicates[i].first] += 1;
 		} else {
@@ -67,15 +67,15 @@ int KNN::predict(Image img) {
 	}
 	int result = 0;
 	int majority = 0;
-	cout << endl << "Voting:";
+	// cout << endl << "Voting:";
 	for (auto itr = vote.begin(); itr != vote.end(); ++itr) {
     	if (itr->second > majority) {
     		majority = itr->second;
     		result = itr->first;
     	}
-    	cout << itr->first << ":" << itr->second << " ";
+    	// cout << itr->first << ":" << itr->second << " ";
   	}
-  	cout << endl;
+  	// cout << endl;
   	assert(result != 0);
 	// return
 	return result;
@@ -95,7 +95,7 @@ void KNN::predict_all() {
 	int correct_count = 0;
 	for (int i = 0; i < dataset_size; ++i) {
 	// for (int i = 0; i < 1; ++i) {
-		cout << "Computing the " << i << " -th test image...";
+		cout << "Computing the " << i << "-th test image...";
 		int result = predict(test_imgs[i]);
 		int answer = test_imgs[i].get_label();
 		cout << "predict: " << result << " In fact: " << answer;
@@ -106,7 +106,7 @@ void KNN::predict_all() {
 			cout << "---> Wrong." << endl;
 		}
 	}
-	cout << "correct_count: " << correct_count;
+	// cout << "correct_count: " << correct_count;
 	double accuracy = (double)correct_count / dataset_size;
 	cout << endl << "The overall accuracy is " << accuracy << endl;
 }
@@ -129,12 +129,27 @@ double KNN::compute_distence(Image img_test, Image img_train) {
 }
 
 double KNN::compute_distence(double* ct1, double* ct2, int size) {
+	MATH_IMG disfunc;
+	return disfunc.distL2(ct1, ct2, size);
+}
+
+double MATH_IMG::distL2(double* ct1, double* ct2, int size) {
 	double distance = 0;
+	// function pointer array
+	pfunArray fp[3] = {&MATH::add, &MATH::minus, &MATH::power};
 	for (int i = 0; i < size; i++) {
-		distance += pow((ct1[i] - ct2[i]), 2);
+		//distance += pow((ct1[i] - ct2[i]), 2);
+		double mr = (this->*fp[1]) (ct1[i], ct2[i]);	// minus
+		mr = (this->*fp[2]) (mr, 2);	// power
+		distance = (this->*fp[0]) (mr, distance);	// add
 	}
 	assert(distance < size);
 	// distance = sqrt(distance);
 	// cout << "In func compute(): " << distance << endl;
 	return distance;	
 }
+
+double MATH::add(double a, double b) {return a + b;}
+double MATH::minus(double a, double b) {return a - b;}
+double MATH::power(double a, double b) {return pow(a, b);}
+double MATH::distL2(double* ct1, double* ct2, int size) {}

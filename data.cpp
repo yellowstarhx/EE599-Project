@@ -1,9 +1,8 @@
 #include "data.h"
 
-Image::Image() {
-	label = 0;
-	size = 0;
-}
+Image::Image() :
+	label(0), size(0)
+{}
 
 Image::Image(vector<string> row) {
 	Image::setImage(row);

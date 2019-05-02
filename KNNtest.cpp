@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	if (argc < 4) {
 		test_csv = "LeNet5_test.csv";
 	} else {
-		test_csv = argv[2];
+		test_csv = argv[3];
 	}
 
 	KNN model;
