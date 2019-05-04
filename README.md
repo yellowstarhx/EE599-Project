@@ -3,6 +3,10 @@ Jiayue Yu & Tianjiao Feng & Xin Huang
 ---  
 ### Updates
 
+#### Update May.4 0 a.m.
+Tianjiao
+Update new version of code with references in VGG part. 
+
 #### Update May.2 20 p.m.
 Tianjiao
 
