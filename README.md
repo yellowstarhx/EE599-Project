@@ -1,4 +1,4 @@
-## EE599-Project: Pokemon Recognition
+## Pokemon Recognition
 Jiayue Yu & Tianjiao Feng & Xin Huang  
 ---  
 ### Updates
